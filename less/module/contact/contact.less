@@ -1,0 +1,72 @@
+﻿.module-contact {
+    .content-container {
+        padding: @content-container-padding;
+        a {
+            outline: none;
+            &:hover, 
+            &:focus, 
+            &:visited {
+                outline: none;
+            }
+        }
+        > a {
+            display: block;
+            outline: none;
+            padding-left: 25px;
+            position: relative;
+            > span {
+                position: absolute;
+                left: 0;
+                top: 2px;
+            }
+        }
+        span {
+            padding: @content-span-padding;
+             &.icon-phone {
+                &:before {
+                    font-size:@contact-icon-phone-font-size;
+                }
+            }
+            &.icon-mail {
+                &:before {
+                    font-size:@contact-icon-email-font-size;
+                }
+            }
+        } 
+        > p {
+            margin-bottom: 0;
+        }
+    }
+
+    .social-bar {
+        padding-top: .5em;
+        padding-bottom: .5em;
+        .social-icon {
+            background-color: @contact-social-icon-background-color;
+            color: @contact-social-icon-color;
+            display: inline-block;
+            font-size: 0;
+            width: @contact-social-icon-width;
+            height: @contact-social-icon-height;
+            position: relative;
+            text-align: center;
+            margin: @contact-social-icon-margin;
+            span {
+                &:before {
+                    font-size: @contact-social-icon-font-size;
+                    line-height: @contact-social-icon-height;           
+                }
+            }
+            &:hover {
+                background-color: @contact-social-icon-hover-background-color;
+                color: @contact-social-icon-hover-color;
+            }
+        }
+        .no-icon {
+            display:block;
+            clear:both;
+        }
+    }
+
+}
+

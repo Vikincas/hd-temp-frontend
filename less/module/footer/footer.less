@@ -1,0 +1,96 @@
+﻿footer {
+    background-color: @footer-background;
+    color: @footer-color;
+    text-align: center;
+    a {
+        color: inherit;
+    }
+    address {
+        font-style: normal;
+        line-height: inherit;
+        margin-bottom: 0;
+        > span {
+            display: block;
+            padding: @adress-padding;
+            &.company-name {
+                font-weight: @company-name-font-weight;
+            }
+        }
+        > a {
+            display: block;
+            color: @footer-link-color;
+            outline: none;
+            padding: @adress-padding;
+            > span {
+                margin-right: 5px;
+            }
+            &:hover, &:focus {
+                color: @footer-link-hover-color;
+                outline: none;
+            }
+            .icon-phone {
+                &:before {
+                    font-size:@icon-phone-font-size;
+                }
+            }
+            .icon-mail {
+                &:before {
+                    font-size:@icon-email-font-size;
+                }
+            }
+        }
+    }
+    &.horizontal-footer {
+        address {
+            > span, 
+            > a  { 
+                display: @display-horisontal-xs;
+                @media (min-width: @screen-sm) {
+                    display: @display-horisontal-sm;
+                }
+                @media (min-width: @screen-md) {
+                    display: @display-horisontal-md;
+                }
+            }
+        }
+    }
+    .footer-container {
+        .container-fluid();
+        max-width: @container-max-width;
+        .hd-container();
+        .footer-row {
+            .make-row();
+            .footer-col {
+                .make-xs-column(12);
+            }
+        }
+    }
+    .social-bar {
+        display: @social-bar-display;
+        .social-icon {
+            background-color: @social-icon-background-color;
+            color: @social-icon-color;
+            display: inline-block;
+            font-size: 0;
+            width: @social-icon-width;
+            height: @social-icon-height;
+            position: relative;
+            text-align: center;
+            margin: @social-icon-margin;
+            outline: none;
+            -webkit-border-radius: @social-icon-radius;
+                    border-radius: @social-icon-radius;
+            span {
+                &:before {
+                    font-size: @social-icon-font-size;
+                    line-height: @social-icon-height;           
+                }
+            }
+            &:hover {
+                background-color: @social-icon-hover-background-color;
+                color: @social-icon-hover-color;
+                outline: none;
+            }
+        }
+    }
+}

@@ -1,0 +1,398 @@
+/************************************************************************************************************************** 
+  .module-banner (Small, Medium & Large)
+  - Can be also a video background
+***************************************************************************************************************************/
+.module-banner {
+    background: none;
+    background-color: inherit;
+    overflow: hidden;
+    position: relative;
+    text-align: inherit;
+    
+    //SM...................................................................
+    &[data-size="Small"] {
+        .aspect-ratio(@banner-small-width-xs, @banner-small-height-xs);
+        @media (min-width: @screen-sm) {
+            .aspect-ratio(@banner-small-width-sm, @banner-small-height-sm);
+        }
+        @media (min-width: @screen-md) {
+            .aspect-ratio(@banner-small-width-md, @banner-small-height-md);
+        }
+        @media (min-width: @screen-lg) {
+            .aspect-ratio(@banner-small-width-lg, @banner-small-height-lg);
+        }
+        @media (min-width: @screen-xl) {
+            .aspect-ratio(@banner-small-width-xl, @banner-small-height-xl);
+        }
+    }
+
+    //MD...................................................................
+    &[data-size="Medium"],
+    &[data-size=""] {
+        .aspect-ratio(@banner-medium-width-xs, @banner-medium-height-xs);
+        @media (min-width: @screen-sm) {
+            .aspect-ratio(@banner-medium-width-sm, @banner-medium-height-sm);
+        }
+        @media (min-width: @screen-md) {
+            .aspect-ratio(@banner-medium-width-md, @banner-medium-height-md);
+        }
+        @media (min-width: @screen-lg) {
+            .aspect-ratio(@banner-medium-width-lg, @banner-medium-height-lg);
+        }
+        @media (min-width: @screen-xl) {
+            .aspect-ratio(@banner-medium-width-xl, @banner-medium-height-xl);
+        }
+    }
+
+    //LG...................................................................
+    &[data-size="Large"] {
+        .aspect-ratio(@banner-large-width-xs, @banner-large-height-xs);
+        @media (min-width: @screen-sm) {
+            .aspect-ratio(@banner-large-width-sm, @banner-large-height-sm);
+        }
+        @media (min-width: @screen-md) {
+            .aspect-ratio(@banner-large-width-md, @banner-large-height-md);
+        }
+        @media (min-width: @screen-lg) {
+            .aspect-ratio(@banner-large-width-lg, @banner-large-height-lg);
+        }
+        @media (min-width: @screen-xl) {
+            .aspect-ratio(@banner-large-width-xl, @banner-large-height-xl);
+        }
+    }
+
+    //Background Video 
+    &[data-is-video-bg="1"] {
+        video { 
+          position: absolute;
+          width: 100%;
+          height: auto;
+          max-width: none;
+          top: 0px;
+          left: 0px;
+          max-width: none;
+          object-fit: cover;
+        }
+        > .content {
+          background-color: transparent;
+        }
+    }
+    &[data-is-video-bg="0"] {
+        video {
+            display: none;
+        }
+    }
+
+    //Banner content......................................................
+    > .content {
+      background-color: inherit;
+      background-repeat: no-repeat; 
+      background-position: center center;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      -o-background-size: cover;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      .transition(all .3s);
+        > .container {
+            position: relative;
+            z-index: 1;
+            height: 100%;
+            overflow: hidden;
+            text-align: inherit;
+            margin: 0 auto;
+            max-width: @container-max-width;
+            .hd-container;
+            .transition(all .3s);
+            > .v-center {
+                height: 100%;
+                .text {
+                    @media (min-width: @screen-md) {
+                        max-width: 75%;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+         > a {
+          display: block;
+          height: 100%;
+          outline: none;
+          &:hover, &:focus, &:visited {
+            outline: none;
+          }
+        }
+    }
+    //loading...
+    > video, 
+    > .content {
+      .opacity(0);
+      .transition(opacity 1s);
+    }
+    &:after {
+      //loading gif =)
+      background: url(../images/hd-loader-64.gif) 0 0 no-repeat;
+      -webkit-background-size: 100%;
+           -o-background-size: 100%;
+              background-size: 100%;
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%; 
+      width: 48px;
+      height: 48px;
+      margin: -24px 0 0 -24px;
+      @media (min-width: @screen-lg) {
+        width: 64px;
+        height: 64px;
+        margin: -32px 0 0 -32px;
+      }
+    }
+    //loaded
+    &.is-loaded {
+      > video, 
+      > .content {
+        .opacity(1);
+      }
+      &:after {
+        display: none; //hides loading
+      }
+    }
+
+    h2 {
+      //we make all banner h2´s appears as h1´s
+      .h1;
+    }
+    .text {
+      padding-left: @gutter/2;
+      padding-right: @gutter/2;
+    }
+}
+
+
+
+/*************************************************************************************************** 
+  Text aligment can be: 
+  (Left, Center, Right, 
+  Top Left, Top Center, Top Right, 
+  Bottom Left, Bottom Center & Bottom Right)
+****************************************************************************************************/
+  [data-text-align=" Left"],
+  [data-text-align="Middle Left"] {
+      .text {
+          float: left;
+          text-align: left;
+      }
+  }
+
+  [data-text-align=" Center"],
+  [data-text-align="Middle Center"] {
+      .text {
+          text-align: center;
+      }
+  }
+
+  [data-text-align=" Right"],
+  [data-text-align="Middle Right"] {
+    .text {
+          float: right;
+          text-align: right;
+      }
+  } 
+
+  [data-text-align="Top Left"] {
+      .text {
+          left: 0;
+          position: absolute;
+          text-align: left;
+          top: 0;
+      }
+  }
+
+  [data-text-align="Top Center"] {
+      .text {
+          left: 0;
+          position: absolute;
+          text-align: center;
+          top: 0;
+          width: 100%;
+          @media (min-width: @screen-md) {
+            left: 12.5%;
+          }
+      }
+  }
+
+  [data-text-align="Top Right"] {
+    .text {
+          right: 0;
+          position: absolute;
+          text-align: right;
+          top: 0;
+      }
+  } 
+
+  [data-text-align="Bottom Left"] {
+      .text {
+          left: 0;
+          position: absolute;
+          text-align: left;
+          bottom: 0;
+      }
+  }
+
+  [data-text-align="Bottom Center"] {
+      .text {
+          left: 0;
+          position: absolute;
+          text-align: center;
+          bottom: 0;
+          width: 100%;
+          @media (min-width: @screen-md) {
+            left: 12.5%;
+          }
+      }
+  }
+
+  [data-text-align="Bottom Right"] {
+    .text {
+          right: 0;
+          position: absolute;
+          text-align: right;
+          bottom: 0;
+      }
+  }
+
+
+
+/************************************************************************************************************************** 
+  MOBILE ALT VIEW (image top - text bottom layout)
+***************************************************************************************************************************/
+.module-banner.alt-view-mobile {
+
+    @media (max-width: @screen-xs-max) {
+
+          //1. We make a flexible height banner
+          &:before {
+            display: none !important;
+          }
+          > .content {
+            position: relative;
+            //2. Set the bg at the top
+            background-position: 0 0;
+            -webkit-background-size: 100% auto;
+                 -o-background-size: 100% auto;
+                    background-size: 100% auto;
+            > .container {
+              height: auto;
+              .text {
+                  position: relative;
+                  right: auto;
+                  left: 0;
+                  bottom: auto;
+                  top: 0;
+                  text-align: left !important;
+              }
+            }
+            .v-center {
+              > div {
+                display: block;
+                  position: relative;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: auto;
+                  > div {
+                    display: block;
+                    vertical-align: top;
+                  }
+              }
+            }
+            &:before {
+              //3. We make a top image spacer
+              content: "";
+              display: block;
+              background-color: @banner-overlay-color;
+              padding-top: (@banner-medium-height-xs-alt / @banner-medium-width-xs-alt) * 100%; //default size medium
+              .opacity(0);
+            }
+          }
+
+          video {
+            display: none;
+          }
+          
+      }
+
+      //Large alternative mobile view
+    &[data-size="Large"] {
+      @media (max-width: @screen-xs-max) {
+        > .content {
+          &:before {
+            //Top image spacer height
+            padding-top: (@banner-large-height-xs-alt / @banner-large-width-xs-alt) * 100%;
+          }
+        }
+      }
+    }
+
+    //Small alternative mobile view
+    &[data-size="Small"] {
+      @media (max-width: @screen-xs-max) {
+        > .content {
+          &:before {
+            //Top image spacer height
+            padding-top: (@banner-small-height-xs-alt / @banner-small-width-xs-alt) * 100%;
+          }
+        }
+      }
+    }
+
+}
+
+
+/************************************************************************************************************************** 
+  MODULE BANNER + OVERLAY
+***************************************************************************************************************************/
+
+//overlay + alt mobile view
+.module-banner.overlay.alt-view-mobile {
+  > .content {
+    &:before {
+      @media (max-width: @screen-xs-max) {
+        //mobile overlay
+        .opacity(@banner-overlay-opacity);
+      }
+      @media (min-width: @screen-sm) {
+        //tablet+ overlay
+        background-color: @banner-overlay-color;
+        content: "";
+        display: block;
+        padding-top: 0;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        .opacity(@banner-overlay-opacity);
+      }
+    }
+  }
+}
+
+//overlay - alt mobile view
+.module-banner.overlay:not(.alt-view-mobile) {
+  > .content {
+    &:before {
+      background-color: @banner-overlay-color;
+      content: "";
+      display: block;
+      padding-top: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      .opacity(@banner-overlay-opacity);
+    }
+  }
+}

@@ -1,0 +1,92 @@
+.module-gallery {
+	background-color: @module-gallery-bg-color;
+	margin-right: @module-gallery-right-margin;
+	margin-left: @module-gallery-left-margin;
+	
+	//Common list view
+	&.is-list {
+		.clearfix;  
+        > div {
+        	//Default 4 rows
+        	overflow: hidden;
+            .make-xs-column(12);
+            .make-sm-column(6);
+            .make-md-column(4);
+            .make-lg-column(3);
+            padding: 0;
+        } 
+        &[data-show-items="1"] {
+        	> div {
+	        	.make-xs-column(12);
+	            .make-sm-column(12);
+	            .make-md-column(12);
+	            .make-lg-column(12);
+	            padding: 0;
+            }
+        }
+        &[data-show-items="2"] {
+        	> div {
+	        	.make-xs-column(12);
+	            .make-sm-column(6);
+	            .make-md-column(6);
+	            .make-lg-column(6);
+	            padding: 0;
+            }
+        }
+        &[data-show-items="3"] {
+        	> div {
+	        	.make-xs-column(12);
+	            .make-sm-column(4);
+	            .make-md-column(4);
+	            .make-lg-column(4);
+	            padding: 0;
+            }
+        }
+        &.only-images {
+        	> div {
+	        	@media (max-width: @screen-sm-max) {
+	        		//we want to show more images per row
+	        		width: 50%;
+	        	}
+        	}
+        }
+	}
+
+
+	//Both views rules...
+	&.is-slider, 
+	&.is-list {
+		//If a slider shows 1 or 2 items at the time, make it flexible height =)
+		&[data-show-items="1"],
+		&[data-show-items="2"] {
+			.teaser-box {
+				&:before {
+					display: none;
+				}
+				.content,
+				.v-center > div {
+					position: relative;
+				}
+				&.text {
+					border: none;
+					max-width: @teaser-box-text-max-width;
+					margin: 0 auto;
+					float: none;
+				}
+
+			}
+		}
+
+		//If a slider shows 1 item shoud not have any absolute position elements
+		&[data-show-items="1"] {
+			.teaser-box {
+				background-color: transparent;
+				> .overlay {
+					position: relative;
+					background-color: transparent;
+				}
+			}
+		}
+	}
+
+}

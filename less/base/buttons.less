@@ -1,0 +1,323 @@
+/****************************************************************************** 
+  Buttons
+******************************************************************************/
+.hd-btn {
+  background: @button-bg-color;
+  border: @button-border-size @button-border-style @button-border-color;
+  -webkit-border-radius: @radius;
+          border-radius: @radius;
+  color: @button-color;
+  cursor: pointer;
+  display: inline-block;
+  font-family: @button-font-family;
+  font-size: @button-font-size-sm; 
+  font-weight: @button-font-weight;
+  margin: @button-margin;
+  min-width: @button-min-width;
+  padding: @button-padding-xs;
+  position: relative;
+  letter-spacing: @button-letter-spacing;
+  line-height: @button-line-height;
+  outline: none;
+  text-align: @button-text-align;
+  text-decoration: none;
+  text-transform: @button-text-transform;
+  touch-action: manipulation;
+  .transition(all @button-transition-timing);
+  @media (min-width: @screen-sm) {
+    font-size: @button-font-size-sm;
+    padding: @button-padding-sm;
+  }
+  @media (min-width: @screen-md) {
+    font-size: @button-font-size-md;
+    padding: @button-padding-md;
+  }
+  @media (min-width: @screen-lg) {
+    font-size: @button-font-size-lg;
+    padding: @button-padding-lg;
+  }
+  &:hover, 
+  &:focus {
+    background-color: @button-bg-color-active;
+    border-color: @button-border-color-active;
+    color: @button-color-active;
+    outline: none;
+    text-decoration: none;
+  }
+  &.inverted {
+    border-color: @button-inverted-border-color;
+    background: @button-inverted-bg-color;
+    color: @button-inverted-color;
+    &:hover, 
+    &:focus {
+      background-color: @button-inverted-bg-color-active;
+      border-color: @button-inverted-border-color-active;
+      color: @button-inverted-color-active;
+    }
+  }
+}
+
+
+/****************************************************************************** 
+  Buttons themes
+******************************************************************************/
+//Secondary color button
+.hd-btn.secondary-color,
+[data-button-color="Secondary-color"] .hd-btn {
+  border-color: @button-secondary-border-color;
+  background-color: @button-secondary-bg-color;
+  color: @button-secondary-color;
+  &:hover, 
+  &:focus {
+    background-color: @button-secondary-bg-color-active;
+    border-color: @button-secondary-border-color-active;
+    color: @button-secondary-color-active;
+  }
+  &.inverted {
+    border-color: @button-secondary-inverted-border-color;
+    background-color: @button-secondary-inverted-bg-color;
+    color: @button-secondary-inverted-color;
+    &:hover, 
+    &:focus {
+      background-color: @button-secondary-inverted-bg-color-active;
+      border-color: @button-secondary-inverted-border-color-active;
+      color: @button-secondary-inverted-color-active;
+    }
+  }
+}
+
+
+//tertiary color button
+.hd-btn.tertiary-color,
+[data-button-color="Tertiary-color"] .hd-btn {
+  border-color: @button-tertiary-border-color;
+  background-color: @button-tertiary-bg-color;
+  color: @button-tertiary-color;
+  &:hover, 
+  &:focus {
+    background-color: @button-tertiary-bg-color-active;
+    border-color: @button-tertiary-border-color-active;
+    color: @button-tertiary-color-active;
+  }
+  &.inverted {
+    border-color: @button-tertiary-inverted-border-color;
+    background-color: @button-tertiary-inverted-bg-color;
+    color: @button-tertiary-inverted-color;
+    &:hover, 
+    &:focus {
+      background-color: @button-tertiary-inverted-bg-color-active;
+      border-color: @button-tertiary-inverted-border-color-active;
+      color: @button-tertiary-inverted-color-active;
+    }
+  }
+}
+
+
+/****************************************************************************** 
+  RTE Buttons fix (fix if buttons are added via RTE)
+******************************************************************************/
+.rte-hd-btn, 
+.rte-hd-btn-download {
+  display: inline-block;
+  width: auto;
+  position: relative;
+  z-index: 1;
+  a {
+    .hd-btn;
+  }
+}
+
+
+
+/****************************************************************************** 
+  Play button & Plus icon button
+******************************************************************************/
+.play-icon-button,
+.plus-icon-button {
+  background-color: @play-btn-bg-color;
+  border: @button-border-size solid @play-btn-bg-color;
+  color: @play-btn-color;
+  font-size: @play-btn-icon-size-sm;
+  display: inline-block;
+  overflow: hidden;
+  .roundCorners(100%;);
+  text-align: center;
+  width: @play-btn-size-sm;
+  height: @play-btn-size-sm;
+  line-height: @play-btn-line-height-sm;
+  z-index: 1;
+  .transition(all .5s);
+  @media (min-width: @screen-md) {
+    font-size: @play-btn-icon-size-md;
+    width: @play-btn-size-md;
+    height: @play-btn-size-md;
+    line-height: @play-btn-line-height-md;
+  }
+  @media (min-width: @screen-lg) {
+    font-size: @play-btn-icon-size-lg;
+    width: @play-btn-size-lg;
+    height: @play-btn-size-lg;
+    line-height: @play-btn-line-height-lg;
+  }
+  //if the bottom needs to be centered
+  &.centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -@play-btn-size-sm/2;
+    margin-top: -@play-btn-size-sm/2;
+    @media (min-width: @screen-md) {
+      margin-left: -@play-btn-size-md/2;
+      margin-top: -@play-btn-size-md/2;
+    }
+    @media (min-width: @screen-lg) {
+      margin-left: -@play-btn-size-lg/2;
+      margin-top: -@play-btn-size-lg/2;
+    }
+  }
+}
+
+
+.play-icon-button:hover,
+.plus-icon-button:hover,
+.fancybox:hover .circle-btn,
+.fancybox-media:hover .circle-btn,
+.teaser-box:hover .play-icon-button,
+.teaser-box:hover .plus-icon-button {
+    border-color: @play-btn-bg-active-color;
+    background-color: @play-btn-bg-active-color;
+    color: @play-btn-active-color;
+    .opacity(1);
+    span {
+        color: @play-btn-active-color;
+    }
+}
+
+//Fixing icon play position
+.play-icon-button {
+  .icon-play {
+      position: relative;
+      left: 2px;
+  }
+}
+
+
+
+/*************************************************************************************************** 
+  Play button
+****************************************************************************************************/
+.play-btn {
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    line-height: 80px;
+    > a {
+        background-color: @play-btn-bg-color;
+        border: none;
+        color: @play-btn-color;
+        display: inline-block;
+        outline: none;
+        overflow: hidden;
+        position: relative;
+        -webkit-border-radius: 100%;
+                border-radius: 100%;
+        text-align: center;
+        text-indent: 100%;
+        text-decoration: none;
+        width: 100%;
+        height: 100%;
+        .scale(@play-btn-scale);
+        .transition(@play-btn-transition);
+        &:before {
+            //border
+            content: "";
+            border: 5px solid @play-btn-color;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0;
+            top: 0;
+            -webkit-border-radius: 100%;
+                border-radius: 100%;
+            .opacity(@play-btn-opacity);
+            .transition(@play-btn-transition);
+        }
+        &:after {
+            //triangle
+            content: "";
+            -moz-border-bottom-colors: none;
+            -moz-border-left-colors: none;
+            -moz-border-right-colors: none;
+            -moz-border-top-colors: none;
+            background: transparent none repeat scroll 0 0;
+            border-color: transparent transparent transparent @play-btn-color;
+            border-image: none;
+            border-style: solid;
+            border-width: 20px 34px;
+            margin-top: -18px;
+            margin-left: -12px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            .opacity(@play-btn-opacity);
+            .transition(@play-btn-transition);
+        }
+        &:hover,
+        &:focus {
+            background-color: @play-btn-bg-active-color;
+            color: @play-btn-active-color;
+            outline: none;
+            text-decoration: none;
+            .scale(@play-btn-active-scale);
+            &:before {
+                border-color: @play-btn-active-color;
+                .opacity(@play-btn-active-opacity);
+            }
+            &:after {
+                border-color: transparent transparent transparent @play-btn-active-color;
+                .opacity(@play-btn-active-opacity);
+            }
+        }
+
+    }
+}
+
+
+//play button (LG)
+.play-btn-lg,
+.rte-play-btn-lg, 
+.module-banner .rte-open-video-overlay {
+    .play-btn;
+    @media (min-width: @screen-md-min) {
+        width: 100px;
+        height: 100px;
+        line-height: 100px;
+    }
+    @media (min-width: @screen-lg-min) {
+        width: 150px;
+        height: 150px;
+        line-height: 150px;
+    }
+    > a {    
+        &:before {
+            @media (min-width: @screen-md-min) {
+                border-width: 7px;
+            }
+            @media (min-width: @screen-lg-min) {
+                border-width: 10px;
+            }
+        }
+        &:after {
+            @media (min-width: @screen-md-min) {
+                border-width: 26px 42px;
+                margin-top: -24px;
+                margin-left: -16px;
+            }
+            @media (min-width: @screen-lg-min) {
+                border-width: 38px 60px;
+                margin-top: -34px;
+                margin-left: -20px;
+            }
+        }
+      }
+}

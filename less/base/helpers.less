@@ -1,0 +1,42 @@
+/****************************************************************************** 
+  Un-sexy helper tricks
+******************************************************************************/
+//NOTE: !important gets used without hesitation, to overwrite possible inline styles
+.no-padding {
+    padding: 0 !important;
+}
+.no-top-padding {
+    padding-top: 0 !important;
+}
+.no-bottom-padding {
+    padding-bottom: 0 !important;
+}
+.no-margin {
+  margin: 0 !important;
+  .container, 
+  section {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+  }
+}
+.no-top-margin {
+  margin-top: 0 !important;
+  .container, 
+  section {
+    padding-top: 0 !important;
+  }
+  section {
+    padding-bottom: 0 !important;
+  }
+}
+.no-bottom-margin {
+  margin-bottom: 0 !important;
+  .container, section {
+    padding-bottom: 0 !important;
+  }
+  section {
+    padding-top: 0 !important;
+  }
+}
+
+

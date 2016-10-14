@@ -1,0 +1,37 @@
+﻿.module-spot {
+    text-align: center;
+
+    &.align-left {
+        text-align: left;
+    }
+    
+    &.align-center {
+        text-align: center;
+    }
+    
+    &.align-right {
+        text-align: right;
+    }
+
+    .spot-image-container {
+        padding: 0 0 20px 0;
+    }
+
+    .spot-text-container {
+        padding: 0 0 20px 0;
+    }
+
+    //all spotboxes har default center text on mobile
+    @media (max-width: @screen-xs-max) {
+
+        &.align-left {
+            text-align: center;
+        }
+        &.align-center {
+            text-align: center;
+        }
+        &.align-right {
+            text-align: center;
+        }
+    }
+}

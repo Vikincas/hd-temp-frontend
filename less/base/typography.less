@@ -1,0 +1,121 @@
+/****************************************************************************** 
+  Typography
+******************************************************************************/
+.font-family-sans-serif,
+.font-sans-serif {
+  font-family: @body-sans-serif-font; 
+}
+.font-family-serif,
+.font-serif {
+  font-family: @body-serif-font;
+}
+
+p {
+    margin: 0 0 15px;
+}
+
+h1, h2, h3, h4, h5, 
+.h1, .h2, .h3, .h4, .h5 {
+  color: @headings-color-global;
+  font-family: @body-font-family;
+  font-weight: @headings-weight-global;
+  margin: @headings-margin-global; 
+  line-height: @headings-line-height;
+  text-transform: @headings-text-tranform-global;
+  -ms-word-wrap: @headings-word-wrap-global;
+      word-wrap: @headings-word-wrap-global;
+  > p {
+    margin-bottom: 0; //added via RTE
+  }
+}
+
+h1, .h1 {
+  color: @heading-1-color;
+  font-size: @heading-1-size-xs;
+  font-family: @heading-1-family;
+  line-height: @heading-1-line-height;
+    @media (min-width: @screen-sm) {
+      font-size: @heading-1-size-sm;
+    }
+    @media (min-width: @screen-md) {
+      font-size: @heading-1-size-md;
+    }
+    @media (min-width: @screen-lg) {
+      font-size: @heading-1-size-lg;
+    }
+    @media (min-width: @screen-xl) {
+      font-size: @heading-1-size-xl;
+    }
+}
+
+h2, .h2 {
+  color: @heading-2-color;
+  font-size: @heading-2-size-xs;
+  font-family: @heading-2-family;
+  line-height: @heading-2-line-height;
+    @media (min-width: @screen-sm) {
+      font-size: @heading-2-size-sm;
+    }
+    @media (min-width: @screen-md) {
+      font-size: @heading-2-size-lg;
+    }
+    @media (min-width: @screen-xl) {
+      font-size: @heading-2-size-xl;
+    }
+}
+
+h3, .h3 {
+  color: @heading-3-color;
+  font-size: @heading-3-size-xs;
+  font-family: @heading-3-family;
+  line-height: @heading-3-line-height;
+    @media (min-width: @screen-sm) {
+      font-size: @heading-3-size-sm;
+    }
+    @media (min-width: @screen-md) {
+      font-size: @heading-3-size-md;
+    }
+    @media (min-width: @screen-lg) {
+      font-size: @heading-3-size-lg;
+    }
+    @media (min-width: @screen-xl) {
+      font-size: @heading-3-size-xl;
+    }
+}
+
+h4, .h4 {
+  color: @heading-4-color;
+  font-size: @heading-4-size-xs;
+  font-family: @heading-4-family;
+  line-height: @heading-4-line-height;
+    @media (min-width: @screen-sm) {
+      font-size: @heading-4-size-sm;
+    }
+    @media (min-width: @screen-md) {
+      font-size: @heading-4-size-md;
+    }
+    @media (min-width: @screen-lg) {
+      font-size: @heading-4-size-lg;
+    }
+    @media (min-width: @screen-xl) {
+      font-size: @heading-4-size-xl;
+    }
+}
+
+blockquote, 
+.blockquote {
+  border: none;
+  font-size: @blockquote-size;
+  font-weight: normal;
+  font-style: @blockquote-font-style;
+  padding: @gutter/4 0px;
+  margin: 0; 
+  > p {
+    margin-top: 0;
+  }
+}
+
+small,
+.small {
+  font-size: @small-font-size;
+}

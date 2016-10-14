@@ -1,0 +1,41 @@
+﻿.module-text { 
+    margin: 0 auto;
+    max-width: @module-text-max-width;
+    .text-block {
+        > div {
+            margin-bottom: 1em;
+        }
+    }
+    &.read-more {
+        .text-block {
+            overflow: hidden;
+            max-height: @read-more-block-max-height;
+            position: relative;
+            .transition(max-height @read-more-block-transition-timing);
+            &:after {
+                content: "";
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                height: 40px;
+                #gradient > .vertical(@read-more-gradient-transparent, @read-more-gradient-opaque);
+            }
+        }
+        &.opened {
+             .text-block {
+                max-height: @read-more-block-max-height-opened;   
+                &:after {
+                    display: none;
+                }
+             }
+        }
+    }
+
+    .read-more-btn {
+        .hd-btn;
+        position: relative;
+        z-index: 1;
+        margin-top: .5em;
+    }
+}

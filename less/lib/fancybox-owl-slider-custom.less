@@ -1,0 +1,139 @@
+
+/****************************************************************************** 
+  Custom Fancybox overwrites
+******************************************************************************/
+.fancybox-wrap {
+	a {
+		outline: none;
+		&:hover,
+		&:active,
+		&:focus {
+			outline: none;
+		}
+	}
+}
+
+.fancybox-skin {
+	-webkit-border-radius: 0;
+	        border-radius: 0;
+}
+
+
+/****************************************************************************** 
+  Custom Fancybox and Owl slider navigation items
+******************************************************************************/
+.owl-theme .owl-controls .owl-buttons .owl-prev,
+.owl-theme .owl-controls .owl-buttons .owl-next,
+.fancybox-prev span,
+.fancybox-next span {
+	position: absolute;
+	top: 50%;
+	width: @arrow-btn-size;
+	height: @arrow-btn-size;
+	line-height: @arrow-btn-size;
+	margin: -@arrow-btn-size/2 0 0 0;
+	font-size: @arrow-btn-font-size;
+	border: @button-border-size solid @arrow-btn-bg-color;
+	background-color: @arrow-btn-bg-color;
+	background-image: none;
+	color: @arrow-btn-color;
+	padding: 0;
+	overflow: hidden;
+	.opacity(0.50);
+	.transition(all .3s);
+	&:hover {
+		border-color: @arrow-btn-bg-active-color;
+		background-color: @arrow-btn-bg-active-color;
+		color: @arrow-btn-active-color;
+		.opacity(1);
+	}
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-prev,
+.fancybox-prev span {
+	left: 0;
+}
+
+.owl-theme .owl-controls .owl-buttons .owl-next,
+.fancybox-next span {
+	right: 0;
+}
+
+.fancybox-close {
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	width: @arrow-btn-size;
+	height: @arrow-btn-size;
+	line-height: @arrow-btn-size;
+	margin: 0;
+	font-size: @arrow-btn-font-size;
+	border: @button-border-size solid @arrow-btn-bg-color;
+	background-color: @arrow-btn-bg-color;
+	background-image: none;
+	color: @arrow-btn-color;
+	padding: 0;
+	overflow: hidden;
+	.opacity(0.5);
+	font-family: @hd-icon-font-name !important;
+    font-style: normal;
+    font-variant: normal;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+	.transition(all .3s);
+	&:before {
+    	position: relative;
+    	top: 7px;
+    	content: "\e90d";
+    }
+	&:hover {
+		border-color: @arrow-btn-bg-active-color;
+		background-color: @arrow-btn-bg-active-color;
+		color: @arrow-btn-active-color;
+		.opacity(1);
+	}
+}
+
+
+//Overwriting fancybox navigation
+.fancybox-prev, 
+.fancybox-next { 
+	text-align: center;
+	span {
+	    font-family: @hd-icon-font-name !important;
+	    font-style: normal;
+	    font-variant: normal;
+	    font-weight: normal;
+	    line-height: 1;
+	    text-align: center;
+	    &:before {
+	    	position: relative;
+	    	top: 7px;
+	    }
+    }
+}
+
+.fancybox-prev span:before {
+	content: "\e902";
+}
+.fancybox-next span:before {
+	content: "\e907";
+}
+
+
+
+//Owl slider controls hide/show
+.owl-theme .owl-controls .owl-buttons .owl-prev,
+.owl-theme .owl-controls .owl-buttons .owl-next {
+	//show only from desktop
+	display: none;
+	@media (min-width: @screen-lg) {
+		display: block;
+	}
+}
+
+
+.owl-theme .owl-controls .owl-page span {
+    background: @hd-pagination-color none repeat scroll 0 0;
+}

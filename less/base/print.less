@@ -1,0 +1,68 @@
+@media print {
+	//Reference: (https://www.smashingmagazine.com/2013/03/tips-and-tricks-for-print-style-sheets/)
+
+	body {
+      color: #000;
+      background: #fff;
+   	}
+
+	nav, 
+	aside,
+	footer,
+	#top,
+	.module-banner,
+	.module-gallery,
+	.module-video,
+	.module-spot,
+	.hd-btn,
+	.hd-btn-inverted,
+	.module-text .read-more-btn,
+	.module-text.read-more .text-block:after,
+	#cookieDisclaimer,
+	#fullpage-overlay {
+		//hide...
+      	display: none !important;
+   	}
+
+   	.module-text.read-more .text-block {
+   		max-height: none !important;
+   	}
+
+   	h1, h2, h3 {
+	   	color: #000;
+      	background: none;
+      	//prevent headings from being printed at the bottom of the page
+      	page-break-after: avoid; 
+	}
+
+	img {
+		//prevent images from bleeding over the edge of the printed page
+	   	max-width: 100% !important;
+	}
+
+	article {
+		// ensure that articles always start on a fresh page
+	   	page-break-before: always;
+	}
+
+	ul, img {
+		//we can prevent large elements, such as unordered lists and images, from being split across multiple pages
+	   	page-break-inside: avoid;
+	}
+
+	//Expand External Links For Print
+	article a {
+	  font-weight: bolder;
+	  text-decoration: none;
+	}
+	article a[href^=http]:after {
+	  content:" <" attr(href) "> ";
+	}
+	article a[href^="#"]:after {
+	   content: "";
+	}
+
+
+}
+
+

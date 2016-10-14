@@ -1,0 +1,38 @@
+﻿.module-image {
+    text-align: center;
+
+    &.align-left {
+        text-align: left;
+    }
+    
+    &.align-center {
+        text-align: center;
+    }
+    
+    &.align-right {
+        text-align: right;
+    }
+
+    img {
+        max-width: 100%;
+    }
+
+    a {
+        outline: none;
+    }
+
+    //default center text on mobile
+    @media (max-width: @screen-xs-max) {
+        &.align-left {
+            text-align: center;
+        }
+        &.align-center {
+            text-align: center;
+        }
+        &.align-right {
+            text-align: center;
+        }
+    }
+
+
+}

@@ -1,0 +1,40 @@
+#cookieDisclaimer {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	background-color: @bg-color;
+	color: @hd-text-color;
+	z-index: 100;
+	border-top: 1px solid @border-color;
+	.container {
+		padding: 1em @gutter/2;
+		max-width: @container-max-width;
+		margin: 0 auto;
+		@media (min-width: @screen-sm) {
+			padding: 1.5em @gutter/2;
+		}
+	}
+	.row {
+		.make-row();
+	}
+
+	.col-sm-10 {
+	    .make-xs-column(12);
+	    .make-sm-column(8);
+	    .make-lg-column(10);
+	    padding-bottom: 1em;
+	    @media (min-width: @screen-sm) {
+	    	padding-bottom: 0;
+	    }
+    }
+    .col-sm-2 {
+	    .make-xs-column(12);
+	    .make-sm-column(4);
+	    .make-lg-column(2);
+	    text-align: left;
+	    @media (min-width: @screen-sm) {
+	    	text-align: right;
+	    }
+    }
+}

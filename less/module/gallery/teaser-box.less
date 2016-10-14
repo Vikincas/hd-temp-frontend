@@ -1,0 +1,291 @@
+/************************************************************************************************************************** 
+  .module-gallery .teaser-box
+***************************************************************************************************************************/
+.module-gallery {
+
+	.teaser-box {
+		.aspect-ratio(1, 1);
+		border: @teaser-box-border-size solid @teaser-box-bg-color;
+		background-color: @teaser-box-bg-color;
+		> .content {
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			padding: @teaser-box-margin;
+			img {
+				display: block;
+				height: 100%;
+	    		width: 100%;
+			}
+			> a,
+			> .fancybox,
+			> .fancybox-media, 
+			> .image-wrap {
+				display: block;
+				height: 100%;
+				overflow: hidden;
+			}
+		}
+	    > .overlay {
+	        color: @teaser-box-color;
+	        font-size: @teaser-box-font-size;
+	        overflow: hidden;
+	        text-align: @teaser-box-text-align;
+	        position: absolute;
+	        left: 0;
+	        bottom: 0;
+	        width: 100%;
+	        height: auto;
+			> .v-center {
+				padding: @teaser-box-margin;
+	            height: 100%;
+	            position: relative;
+	            z-index: 1;
+	            > div { 
+	                position: relative; 
+	                background-color: @teaser-box-bg-color;
+	                > div {
+	                    padding: 1em;
+	                    @media (min-width: @screen-sm) {
+	                    	padding: 1.5em;
+	                    }
+	                }
+	            }
+	        }
+		}
+
+		//Text 
+		&.text {
+			> .overlay {
+				height: 100%;
+			}
+		}
+
+		//Image
+		&.image {
+			&.contains-text-not {
+				.plus-icon-button {
+					.opacity(0);
+				}
+				&.contains-image .content > a {
+					//Image + link (not plus)
+					.plus-icon-button {
+						.opacity(0);
+					}
+				}
+			}
+			&:hover,
+			&:focus {
+				.plus-icon-button {
+					.opacity(.75);
+				}
+			}
+		}
+
+		//Video
+		&.video {
+			&.contains-text-not {
+				.play-icon-button {
+					.opacity(0.75);
+				}
+			}
+			&:hover,
+			&:focus {
+				.play-icon-button {
+					.opacity(1);
+				}
+			}
+		}
+
+	}
+
+
+
+
+/************************************************************************************************************************** 
+  .teaser-box hovers
+***************************************************************************************************************************/
+
+//Slide up (overlay + image) hover.......................................
+.teaser-box:not(.text):not(.contains-text-not) {
+	> .content .image-wrap > img {
+		.transform-translate-y(0%);
+		will-change: transform;
+		.transition(transform @teaser-box-transition-timing ease-out);
+	}
+	.overlay {
+		 .transform-translate-y(105%);
+		 will-change: transform;
+		 .transition(transform @teaser-box-transition-timing ease-out);
+	}
+	&:hover, 
+	&:focus {
+	    > .content .image-wrap > img {
+	        .transform-translate-y(-10%);
+	    }
+	    .overlay {
+	        .transform-translate-y(0);
+	    }
+	}
+}
+
+
+//Scale up (image) hover.................................................
+.teaser-box.contains-text-not .content > a {
+	.image-wrap {
+        .transform-scale(1);
+        -webkit-backface-visibility: hidden;
+	    will-change: transform;
+	    .transition(transform @teaser-box-scale-transition-timing);
+	    
+    }
+	&:hover, 
+	&:focus {
+		.image-wrap {
+	        .transform-scale(1.075);
+		}
+	}
+}
+
+
+} //.module-gallery
+
+
+/************************************************************************************************************************** 
+  Teaser box fancybox image hover (bg + plus button)
+***************************************************************************************************************************/
+.module-gallery .teaser-box.image.contains-text-not {
+	.image-wrap {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		&:before {
+			//dark overlay
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			.opacity(0);
+			.transition(opacity .3s);
+		}
+		&:after {
+			//plus icon
+		    font-family: @hd-icon-font-name !important;
+		    speak: none;
+		    font-style: normal;
+		    font-weight: normal;
+		    font-variant: normal;
+		    text-transform: none;
+		    line-height: 1;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+			content: "\e926";
+			
+			color: #FFF;
+			font-size: 20px;
+			display: inline-block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			padding: 0;
+			-webkit-border-radius: 100%;
+			        border-radius: 100%;
+			border: @border-size solid white;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			margin-left: -25px;
+			margin-top: -25px;
+			.opacity(0);
+			.transition(opacity .3s);
+		}
+	}
+	.fancybox {
+		.image-wrap:hover {
+			&:before {
+				.opacity(0.33);
+			}
+			&:after {
+				.opacity(1);
+			}	
+		}
+		.plus-icon-button.centered {
+			display: none; //legacy overwrite
+		}
+	}
+}
+
+
+/************************************************************************************************************************** 
+  Teaser box fancybox video hover (bg + play button)
+***************************************************************************************************************************/
+.module-gallery .teaser-box.video.contains-text-not {
+	.image-wrap {
+		position: relative;
+		width: 100%;
+		height: 100%;
+		&:before {
+			//dark overlay
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background-color: black;
+			.opacity(0);
+			.transition(opacity .3s);
+		}
+		&:after {
+			//play icon
+		    font-family: @hd-icon-font-name !important;
+		    speak: none;
+		    font-style: normal;
+		    font-weight: normal;
+		    font-variant: normal;
+		    text-transform: none;
+		    line-height: 1;
+		    -webkit-font-smoothing: antialiased;
+		    -moz-osx-font-smoothing: grayscale;
+			content: "\e924";
+			
+			color: #FFF;
+			font-size: 20px;
+			display: inline-block;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			padding: 0;
+			-webkit-border-radius: 100%;
+			        border-radius: 100%;
+			border: @border-size solid white;
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+			text-align: center;
+			margin-left: -25px;
+			margin-top: -25px;
+			padding-left: 4px;
+			.opacity(0);
+			.transition(opacity .3s);
+		}
+	}
+	.fancybox-media {
+		.image-wrap:hover {
+			&:before {
+				.opacity(0.25);
+			}
+			&:after {
+				.opacity(1);
+			}	
+		}
+		.play-icon-button.centered {
+			display: none; //legacy overwrite
+		}
+	}
+}
+

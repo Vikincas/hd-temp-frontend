@@ -1,0 +1,108 @@
+﻿/******** TEMP *******
+[class*="columns-"] {
+    background-color: rgba(86, 61, 124, 0.15);
+    border: 1px solid rgba(86, 61, 124, 0.2);
+    padding-bottom: 15px;
+    padding-top: 15px;
+
+
+}
+*/
+/******** TEMP END ********/
+
+.hd-container {
+  padding: @container-padding-top-bottom-xs @gutter/2;
+  @media (min-width: @screen-sm) {
+    padding: @container-padding-top-bottom-sm @gutter/2;
+  }
+  @media (min-width: @screen-md) {
+    padding: @container-padding-top-bottom-md @gutter/2;
+  }
+  @media (min-width: @screen-lg) {
+    padding: @container-padding-top-bottom-lg @gutter/2;
+  }
+}
+
+.columns-12 {
+    .make-xs-column(12);
+}
+
+.columns-6 {
+    .make-xs-column(12);
+    .make-sm-column(6);
+
+    padding: @gutter / 2;
+
+    @media (min-width: @screen-sm) {
+        padding: 0 @gutter / 2;
+    }
+
+}
+
+.columns-4 {
+    .make-xs-column(12);
+    .make-sm-column(4);
+
+     padding: @gutter / 2;
+
+    @media (min-width: @screen-sm) {
+        padding: 0 @gutter / 2;
+    }
+}
+
+.columns-3 {
+    .make-xs-column(12);
+    .make-sm-column(6);
+    .make-md-column(3);
+
+    padding: @gutter / 2;
+
+    @media (min-width: @screen-sm) {
+        padding: @gutter / 2;
+    }
+    @media (min-width: @screen-md) {
+        padding:  0 @gutter / 2;
+    }
+}
+
+
+main{
+
+    max-width: @main-wrap-max-width;
+    min-height: @main-wrap-min-height;
+    margin: auto;
+    overflow: hidden;
+    > div {
+        &.normal {
+            > div  {
+                .container-fluid();
+                max-width: @container-max-width;
+                .hd-container();
+            }
+        }
+
+        &.Remove-margin {
+            > div  {
+                padding-top:0;
+                padding-bottom:0;
+            }
+
+        }
+
+        &.Remove-bottom-margin {
+            > div  {
+                padding-bottom:0;
+            }
+        }
+
+        &.Remove-top-margin {
+            > div  {
+                padding-top:0;
+            }
+        }
+
+        .row {
+            .make-row();
+        }
+    }
+} 

@@ -1,0 +1,290 @@
+/****************************************************************************** 
+  Grid Settings variables
+******************************************************************************/
+@main-wrap-max-width:               100%;
+@main-wrap-min-height:              500px;
+
+@container-max-width:               1400px;
+@container-padding-top-bottom-xs:   2em;
+@container-padding-top-bottom-sm:   2.75em;
+@container-padding-top-bottom-md:   2.75em;
+@container-padding-top-bottom-lg:   3.5em;
+
+
+/****************************************************************************** 
+  Base variables
+******************************************************************************/
+@grid-gutter-width:         30px;
+@gutter:                    @grid-gutter-width;
+@radius:                    0;
+@border-size:               2px;
+@border-color:              @hd-text-color;
+
+
+/****************************************************************************** 
+	Media queries breakpoints
+******************************************************************************/
+// Extra small screen / phone
+@screen-xs:              480px;
+// Small screen / tablet
+@screen-sm:              768px;
+// Medium screen / desktop
+@screen-md:              992px;
+// Large screen / wide desktop
+@screen-lg:              1200px;
+// Extra large screens
+@screen-xl:              1800px;
+
+// So media queries don't overlap when required, provide a maximum
+@screen-xs-max:              (@screen-sm - 1);
+@screen-sm-max:              (@screen-md - 1);
+@screen-md-max:              (@screen-lg - 1);
+@screen-lg-max:              (@screen-xl - 1);
+
+
+/****************************************************************************** 
+  Colors
+******************************************************************************/
+@primary-color:                     #F00;   
+@secondary-color:                   #0F0; 
+@tertiary-color:                    #00F;  
+@hd-text-color: 						        #333;
+@bg-color: 						              #FFF;
+
+
+/****************************************************************************** 
+  Body defaults
+******************************************************************************/
+@body-bg-color: 					          @bg-color;
+@body-color: 						            @hd-text-color;
+
+
+/************************************************************************************
+  Typography 
+************************************************************************************/
+@body-sans-serif-font:             sans-serif; 
+@body-serif-font:                  serif;
+@body-font-family:                 @body-sans-serif-font;
+
+@base-font-size:					         15px;
+@base-line-height:					       1.45;
+
+@headings-color-global: 		      inherit;
+@headings-family-global: 					inherit;
+@headings-weight-global: 					bold;
+@headings-line-height-global: 	  1.1;
+@headings-margin-global: 					0 0 10px 0;
+@headings-text-tranform-global:		none;
+@headings-word-wrap-global:       break-word;
+
+@heading-1-color: 					      inherit;
+@heading-1-family: 					      @headings-family-global;
+@heading-1-line-height: 		      @headings-line-height-global;
+@heading-1-size-xs: 				      2.15em; 
+@heading-1-size-sm: 				      2.5em; 
+@heading-1-size-md: 				      3.0em; 
+@heading-1-size-lg: 				      3.6em; 
+@heading-1-size-xl: 				      4.3em; 
+
+@heading-2-color: 					      inherit;
+@heading-2-family: 					      @headings-family-global;
+@heading-2-line-height: 		      @headings-line-height-global;
+@heading-2-size-xs: 				      1.5em; 
+@heading-2-size-sm: 				      1.7em; 
+@heading-2-size-md: 				      2.0em; 
+@heading-2-size-lg: 				      2.0em; 
+@heading-2-size-xl: 				      2.5em; 
+
+@heading-3-color: 					      inherit;
+@heading-3-family: 					      @headings-family-global;
+@heading-3-line-height: 		      @headings-line-height-global;
+@heading-3-size-xs: 				      1.15em; 
+@heading-3-size-sm: 				      1.15em; 
+@heading-3-size-md: 				      1.15em; 
+@heading-3-size-lg: 				      1.15em; 
+@heading-3-size-xl: 				      1.15em; 
+
+@heading-4-color: 					      inherit;
+@heading-4-family: 					      @headings-family-global;
+@heading-4-line-height: 		      @headings-line-height-global;
+@heading-4-size-xs: 				      1em; 
+@heading-4-size-sm: 				      1em; 
+@heading-4-size-md: 				      1em; 
+@heading-4-size-lg: 				      1em; 
+@heading-4-size-xl: 				      1em; 
+
+@a-color: 							          @primary-color;
+@a-color-hover: 					        darken(@primary-color, 10%);
+@a-text-decoration: 				   	  none;
+
+@blockquote-size:                 1.25em;
+@blockquote-font-style:        	  italic;
+
+@small-font-size: 					      80%;
+
+
+
+/******************************************************************************
+  Iconography
+  Specify custom location and filename of the custom icon font.
+******************************************************************************/
+//** Load icon-fonts from this directory.
+@hd-icon-font-path:          "../fonts/";
+//** File name for all font files.
+@hd-icon-font-name:          "Umbraco-standard";
+
+
+
+/****************************************************************************** 
+  Buttons
+******************************************************************************/
+@button-border-size:            @border-size;
+@button-border-style:           solid;
+@button-font-family:            @body-font-family;
+@button-font-weight:            bold;
+@button-letter-spacing:         0.5px;
+@button-line-height:            1.3;
+@button-min-width:              150px;
+@button-text-align:             center;
+@button-text-transform:         uppercase;
+@button-transition-timing:      0.4s;
+
+@button-font-size-xs:           1em;
+@button-font-size-sm:           1.15em;
+@button-font-size-md:           1.15em;
+@button-font-size-lg:           1.3em;
+
+@button-margin:                 3px 0;
+@button-padding-xs:             .75em 1.25em;
+@button-padding-sm:             .75em 1.25em;
+@button-padding-md:             .75em 1.25em;
+@button-padding-lg:             .75em 1.25em;
+
+//Buttons colors
+@button-bg-color:                                   transparent;
+@button-border-color:                               @primary-color;
+@button-color:                                      @primary-color;
+@button-bg-color-active:                            darken(@primary-color, 10%);
+@button-border-color-active:                        darken(@primary-color, 10%);
+@button-color-active:                               white;
+
+@button-inverted-bg-color:                          @primary-color;
+@button-inverted-border-color:                      @primary-color;
+@button-inverted-color:                             white;
+@button-inverted-bg-color-active:                   transparent;
+@button-inverted-color-active:                      @primary-color;
+@button-inverted-border-color-active:               @primary-color;
+
+@button-secondary-bg-color:                         transparent;
+@button-secondary-border-color:                     @secondary-color;
+@button-secondary-color:                            @secondary-color;
+@button-secondary-bg-color-active:                  darken(@secondary-color, 10%);
+@button-secondary-border-color-active:              darken(@secondary-color, 10%);
+@button-secondary-color-active:                     white;
+
+@button-secondary-inverted-bg-color:                @secondary-color;
+@button-secondary-inverted-border-color:            @secondary-color;
+@button-secondary-inverted-color:                   white;
+@button-secondary-inverted-bg-color-active:         transparent;
+@button-secondary-inverted-color-active:            @secondary-color;
+@button-secondary-inverted-border-color-active:     @secondary-color;
+
+@button-tertiary-bg-color:                          transparent;
+@button-tertiary-border-color:                      @tertiary-color;
+@button-tertiary-color:                             @tertiary-color;
+@button-tertiary-bg-color-active:                   darken(@tertiary-color, 10%);
+@button-tertiary-border-color-active:               darken(@tertiary-color, 10%);
+@button-tertiary-color-active:                      white;
+
+@button-tertiary-inverted-bg-color:                 @tertiary-color;
+@button-tertiary-inverted-border-color:             @tertiary-color;
+@button-tertiary-inverted-color:                    white;
+@button-tertiary-inverted-bg-color-active:          transparent;
+@button-tertiary-inverted-color-active:             @tertiary-color;
+@button-tertiary-inverted-border-color-active:      @tertiary-color;
+
+//(legacy) active colors not used anymore
+//@button-active-primary-color:   white;
+//@button-active-secondary-color: white;
+//@button-active-tertiary-color:  white;
+
+
+//Play/Plus buttons
+@play-btn-size-sm:              60px;
+@play-btn-size-md:              60px;
+@play-btn-size-lg:              70px;
+@play-btn-line-height-sm:       62px;
+@play-btn-line-height-md:       62px;
+@play-btn-line-height-lg:       75px;
+@play-btn-icon-size-sm:         24px;
+@play-btn-icon-size-md:         24px;
+@play-btn-icon-size-lg:         25px;
+
+@play-btn-bg-color:             transparent;
+@play-btn-bg-active-color:       transparent;
+@play-btn-color:                white;
+@play-btn-active-color:          @play-btn-color;
+@play-btn-opacity:              .75;
+@play-btn-active-opacity:        1;
+@play-btn-scale:                .975;
+@play-btn-active-scale:          1; 
+@play-btn-transition:           all .3s;
+
+
+
+/****************************************************************************** 
+  Form
+******************************************************************************/
+@hd-form-item-bg-color:                   @tertiary-color;
+@hd-form-item-border-color:               @tertiary-color;
+@hd-form-item-border-color-focus:         darken(@hd-form-item-border-color, 5%);
+@hd-form-item-border-width:               @border-size;
+@hd-form-item-border-radius:              @radius;
+@hd-form-item-color:                      @hd-text-color;
+@hd-form-item-font-family:                @body-font-family;
+@hd-form-item-font-weight:                bold;
+@hd-form-item-font-size:                  1em;
+@hd-form-item-text-transform:             none;
+@hd-form-item-line-height:                1.3;
+@hd-form-item-box-shadow:                 none;
+@hd-form-item-padding:                    .5em 1em;
+@hd-form-item-margin:                     0 0 0.75em 0;
+@hd-form-item-placeholder-color:          @hd-text-color;
+@hd-form-item-placeholder-opacity:        .85;
+
+@hd-form-fieldset-margin:                 0 0 2em 0;
+@hd-form-label-color:                     inherit;
+@hd-form-label-transform:                 none;
+
+@hd-form-checkbox-bg-color:               @tertiary-color;
+@hd-form-checkbox-border-color:           @tertiary-color;
+@hd-form-checkbox-label-color:            @primary-color;
+@hd-form-checkbox-bg-color-checked:       @secondary-color;
+@hd-form-checkbox-border-color-checked:   @secondary-color;
+
+@hd-form-checkbox-size-sm:                12px;
+@hd-form-checkbox-sm-margin:              -3px 8px 0 0;
+@hd-form-checkbox-size-md:                16px;
+@hd-form-checkbox-md-margin:              -3px 8px 0 0;
+@hd-form-checkbox-size-lg:                24px;
+@hd-form-checkbox-lg-margin:              -2px 10px 0 0;
+
+@hd-form-validation-font-size-sm:         12px;
+@hd-form-validation-font-size-md:         14px;
+@hd-form-validation-font-style:           italic;
+@hd-form-validation-font-color:           red;
+@hd-form-validation-padding:              5px 0;
+
+
+
+/****************************************************************************** 
+  Navigation controls (Owl slider & Fancybox)
+******************************************************************************/
+@arrow-btn-size: 				          40px;
+@arrow-btn-font-size: 			      20px;
+@arrow-btn-bg-color: 			        #FFF;
+@arrow-btn-color: 				        #000;
+@arrow-btn-bg-active-color: 	    #FFF;
+@arrow-btn-active-color: 		      @primary-color;
+
+@hd-pagination-color:             @hd-text-color;

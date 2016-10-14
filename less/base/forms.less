@@ -1,0 +1,214 @@
+/****************************************************************************** 
+    Forms
+******************************************************************************/
+form {
+    position: relative;
+    z-index: 1;
+}
+
+fieldset {
+    border: none;
+    padding: 0;
+    margin: @hd-form-fieldset-margin;
+}
+
+legend {
+    .h3;
+}
+
+label {
+    text-transform: @hd-form-label-transform;
+    color: @hd-form-label-color;
+}
+
+input {
+    -webkit-appearance: none;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="number"],
+input[type="color"],
+input[type="email"], 
+input[type="search"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="date"],
+input[type="month"],
+input[type="time"],
+input[type="week"],
+input[type="number"],
+input[type="url"],
+select,
+textarea {
+    .box-sizing(border-box);
+    display: block;
+    width: 100%;
+    height: auto;
+    line-height: @hd-form-item-line-height;
+    color: @hd-form-item-color;
+    background-image: none; 
+    background-color: @hd-form-item-bg-color;
+    border-width: @hd-form-item-border-width;
+    border-style: solid;
+    border-color: @hd-form-item-border-color;
+    border-radius: @hd-form-item-border-radius;
+    font-family: @hd-form-item-font-family;
+    font-size: @hd-form-item-font-size;
+    font-weight: @hd-form-item-font-weight;
+    -webkit-box-shadow: @hd-form-item-box-shadow;
+    -moz-box-shadow: @hd-form-item-box-shadow;
+    box-shadow: @hd-form-item-box-shadow;
+    text-transform: @hd-form-item-text-transform;
+    padding: @hd-form-item-padding; 
+    margin: @hd-form-item-margin;
+    outline: none;
+    ::-webkit-input-placeholder,
+    ::-moz-placeholder,
+    :-ms-input-placeholder {  
+       color: @hd-form-item-placeholder-color;
+       opacity: @hd-form-item-placeholder-opacity;
+    }
+    &:focus {
+      border-color: @hd-form-item-border-color-focus;
+    }
+}
+
+
+/***************************************************************************************** 
+    //CSS3 Checkboxes & Radio buttons 
+    (http://www.hongkiat.com/blog/css3-checkbox-radio/)
+******************************************************************************************/
+//.css3-checkbox
+.css3-checkbox {
+    input[type="checkbox"] {
+        display: none;
+        + label {
+            color: @hd-form-checkbox-label-color; 
+            cursor: pointer; 
+            font-weight: normal;
+            font-size: 1em;
+            position: relative; 
+            .transition(all .3s);
+            &:before {
+                content: "";
+                display: inline-block;
+                .square(@hd-form-checkbox-size-sm);
+                margin: @hd-form-checkbox-sm-margin;
+                vertical-align: middle;
+                cursor: pointer;
+                border: @hd-form-item-border-width solid @hd-form-checkbox-border-color;
+                background-color: @hd-form-checkbox-bg-color;
+            }
+        }
+        &:checked + label:before {
+            background-color: @hd-form-checkbox-bg-color-checked;
+            border-color: @hd-form-checkbox-border-color-checked;
+        }
+    }
+    &.medium {
+        input[type="checkbox"] + label:before {
+            .square(@hd-form-checkbox-size-md);
+            margin: @hd-form-checkbox-md-margin;
+        }
+    }
+    &.large {
+        input[type="checkbox"] + label:before {
+            .square(@hd-form-checkbox-size-lg);
+            margin: @hd-form-checkbox-lg-margin;
+        }
+    }
+}
+
+//IE8
+.lt-ie9 {
+    .css3-checkbox {
+        input[type="checkbox"] {
+            display: block;
+            + label:before {
+                display: none;
+            }
+        }
+    }
+}
+
+//.css3-checkbox-radio
+.css3-checkbox-radio { 
+    input[type="radio"] {
+        display: none;
+        + label {
+            color: @hd-form-checkbox-label-color; 
+            cursor: pointer; 
+            font-weight: normal;
+            font-size: 1em;
+            position: relative;
+            .transition(all .3s);
+            &:before {  
+                content: "";  
+                display: inline-block;  
+                -webkit-border-radius: 100%;
+                         border-radius: 100%; 
+                .square(@hd-form-checkbox-size-sm); 
+                margin: @hd-form-checkbox-sm-margin;
+                border: @hd-form-item-border-width solid @hd-form-checkbox-border-color;
+                background-color: @hd-form-checkbox-bg-color;
+            }  
+        }
+        &:checked + label:before {
+            background-color: @hd-form-checkbox-bg-color-checked;
+            border-color: @hd-form-checkbox-border-color-checked;
+        }
+    }
+    &.medium {
+        input[type="radio"] + label:before {
+            .square(@hd-form-checkbox-size-md);
+            margin: @hd-form-checkbox-md-margin;
+        }
+    }
+    &.large {
+        input[type="radio"] + label:before {
+            .square(@hd-form-checkbox-size-lg);
+            margin: @hd-form-checkbox-lg-margin;
+        }
+    }
+    
+}
+
+//IE8 
+.lt-ie9 {
+    .css3-checkbox-radio {
+        input[type="radio"] {
+            display: block;
+            + label {
+                padding-left: 0;  
+                margin-right: 0;  
+                &:before {
+                    display: none;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+/****************************************************************************** 
+  Form validation
+******************************************************************************/
+.form-validation {
+    font-size: @hd-form-validation-font-size-sm;
+    font-family: inherit;
+    font-style: @hd-form-validation-font-style;
+    color: @hd-form-validation-font-color;
+    display: block;
+    width: 100%;
+    padding: @hd-form-validation-padding;
+    .clearfix;
+    .field-validation-error {
+        display: block;
+        font-size: @hd-form-validation-font-size-md;
+    }
+
+}

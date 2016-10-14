@@ -1,0 +1,250 @@
+/************************************************************************************* 
+  Aspect ratios - https://css-tricks.com/snippets/sass/maintain-aspect-ratio-mixin/
+*************************************************************************************/
+.aspect-ratio(@width, @height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: (@height / @width) * 100%;
+  }
+  > .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+
+/****************************************************************************** 
+  Sexy helper tricks
+******************************************************************************/
+//Vertical alignment
+.v-center {
+    position: relative;
+    //(requires a width + height)
+    > div {
+        display: table;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        > div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+}
+
+//Fixes negative z-index values
+.rescope-z-index { 
+  position: relative;
+  z-index: 1;
+}
+
+
+/****************************************************************************** 
+  Lazyloadxt load effects
+******************************************************************************/
+.lazy, .lazy-hidden {
+    .opacity(0);
+}
+.lazyOwl.lazy-hidden {
+  .opacity(1);
+}
+.lazy-loaded {
+    .opacity(1);
+    .transition(all .3s);
+}
+
+
+/****************************************************************************** 
+  Custom mixins
+******************************************************************************/
+.transform-scale(@scale) {
+    -webkit-transform: scale(@scale);
+       -moz-transform: scale(@scale);
+        -ms-transform: scale(@scale);
+         -o-transform: scale(@scale);
+            transform: scale(@scale);
+}
+
+.transform-translate-y(@translateY) {
+    -webkit-transform: translateY(@translateY);
+       -moz-transform: translateY(@translateY);
+        -ms-transform: translateY(@translateY);
+         -o-transform: translateY(@translateY);
+            transform: translateY(@translateY);
+}
+
+.transform-translate-x(@translateX) {
+    -webkit-transform: translateX(@translateX);
+       -moz-transform: translateX(@translateX);
+        -ms-transform: translateX(@translateX);
+         -o-transform: translateX(@translateX);
+            transform: translateX(@translateX);
+}
+
+
+.roundCorners(@radius) {
+	-webkit-border-radius: @radius;
+	-moz-border-radius: @radius;
+	border-radius: @radius;
+}
+
+.shadow(@size, @blur, @color){
+	-moz-box-shadow: 0 0 @blur @size @color;
+	-webkit-box-shadow: 0 0 @blur @size @color;
+	box-shadow: 0 0 @blur @size @color;
+}
+
+.shadow(@topPos, @leftPos, @size, @blur, @color){
+	-moz-box-shadow: @topPos @leftPos @blur @size @color;
+	-webkit-box-shadow: @topPos @leftPos @blur @size @color;
+	box-shadow: @topPos @leftPos @blur @size @color;
+}
+
+.gradient(@from, @to) {
+	background-color: @to;
+	background: -webkit-gradient(linear, left top, left bottom, from(@from), to(@to));
+	background: -webkit-linear-gradient(@from, @to);
+	background: -moz-linear-gradient(@from, @to);
+	background: linear-gradient(@from, @to);
+	background: -ms-linear-gradient(top, @from, @to);
+	background: -o-linear-gradient(top, @from, @to); 
+}
+
+.opacity (@opacity) {
+    opacity: @opacity;
+    -ms-filter: ~`"progid:DXImageTransform.Microsoft.Alpha(opacity=" + "@{opacity}" * 100 + ")"`; 
+    filter: ~`"alpha(opacity = " + "@{opacity}" * 100 + ")"`;
+}
+
+
+
+// --------------------------------------------------
+// Flexbox LESS mixins
+// The spec: http://www.w3.org/TR/css3-flexbox
+// --------------------------------------------------
+
+// Flexbox display
+// flex or inline-flex
+.flex-display(@display: flex) {
+  display: ~"-webkit-@{display}";
+  display: ~"-ms-@{display}box"; // IE10 uses -ms-flexbox
+  display: ~"-ms-@{display}"; // IE11
+  display: @display;
+}
+
+// The 'flex' shorthand
+// - applies to: flex items
+// <positive-number>, initial, auto, or none
+.flex(@columns: initial) {
+  -webkit-flex: @columns;
+      -ms-flex: @columns;
+          flex: @columns;
+}
+
+// Flex Flow Direction
+// - applies to: flex containers
+// row | row-reverse | column | column-reverse
+.flex-direction(@direction: row) {
+  -webkit-flex-direction: @direction;
+      -ms-flex-direction: @direction;
+          flex-direction: @direction;
+}
+
+// Flex Line Wrapping
+// - applies to: flex containers
+// nowrap | wrap | wrap-reverse
+.flex-wrap(@wrap: nowrap) {
+  -webkit-flex-wrap: @wrap;
+      -ms-flex-wrap: @wrap;
+          flex-wrap: @wrap;
+}
+
+// Flex Direction and Wrap
+// - applies to: flex containers
+// <flex-direction> || <flex-wrap>
+.flex-flow(@flow) {
+  -webkit-flex-flow: @flow;
+      -ms-flex-flow: @flow;
+          flex-flow: @flow;
+}
+
+// Display Order
+// - applies to: flex items
+// <integer>
+.flex-order(@order: 0) {
+  -webkit-order: @order;
+      -ms-order: @order;
+          order: @order;
+}
+
+// Flex grow factor
+// - applies to: flex items
+// <number>
+.flex-grow(@grow: 0) {
+  -webkit-flex-grow: @grow;
+      -ms-flex-grow: @grow;
+          flex-grow: @grow;
+}
+
+// Flex shrink
+// - applies to: flex item shrink factor
+// <number> 
+.flex-shrink(@shrink: 1) {
+  -webkit-flex-shrink: @shrink;
+      -ms-flex-shrink: @shrink;
+          flex-shrink: @shrink;
+}
+
+// Flex basis
+// - the initial main size of the flex item
+// - applies to: flex itemsnitial main size of the flex item
+// <width> 
+.flex-basis(@width: auto) {
+  -webkit-flex-basis: @width;
+      -ms-flex-basis: @width;
+          flex-basis: @width;
+}
+
+// Axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | space-between | space-around 
+.justify-content(@justify: flex-start) {
+  -webkit-justify-content: @justify;
+      -ms-justify-content: @justify;
+          justify-content: @justify;
+}
+
+// Packing Flex Lines
+// - applies to: multi-line flex containers
+// flex-start | flex-end | center | space-between | space-around | stretch 
+.align-content(@align: stretch) {
+  -webkit-align-content: @align;
+      -ms-align-content: @align;
+          align-content: @align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex containers
+// flex-start | flex-end | center | baseline | stretch 
+.align-items(@align: stretch) {
+  -webkit-align-items: @align;
+      -ms-align-items: @align;
+          align-items: @align;
+}
+
+// Cross-axis Alignment
+// - applies to: flex items
+// auto | flex-start | flex-end | center | baseline | stretch 
+.align-self(@align: auto) {
+  -webkit-align-self: @align;
+      -ms-align-self: @align;
+          align-self: @align;
+}
